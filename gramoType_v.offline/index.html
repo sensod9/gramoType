@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <title>gramoType | offline</title>
+  <link href='assets/font/PT_Mono_font.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body style="background-color: #312d3f;">
+  <main>
+    <h1 id="h_title">gramoType v.offline</h1>
+    <div id="wordlists_menu" class="invisible">
+      <div class="list_explanation">Вставить букву вместо «.»
+        <br>(или ничего не вставлять)
+      </div>
+      <button id="toggle_list1" class="list_selector active">ЕГЭ №9</button>
+      <button id="toggle_list2" class="list_selector">ЕГЭ №10</button>
+      <button id="toggle_list3" class="list_selector">ЕГЭ №11</button>
+      <button id="toggle_list4" class="list_selector">ЕГЭ №12</button>
+      <div class="list_explanation">Поставить ударение
+        <br>(ударную гласную написать<br>с большой буквы)
+      </div>
+      <button id="toggle_list5" class="list_selector">ЕГЭ №4</button>
+    </div>
+    <div id="ending_screen" class="invisible">
+      <div id="ending_title_bar" class="title_bar">
+        <div id="ending_title"></div>
+        <div id="ending_crossmark">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="ending_row words_counter">
+        <div id="ending_w_amount">99</div>
+        <div id="ending_sep">/</div>
+        <div id="ending_accuracy">95.2%</div>
+      </div>
+      <div class="ending_row wl_words_counter">
+        <span id="ending_correct_counter" class="correct_counter">99999</span>
+        <span class="slash_sep"> \ </span>
+        <span id="ending_incorrect_counter" class="incorrect_counter">99999</span>
+      </div>
+      <div class="mistakes_wrapper">
+        <div class="mistakes_title">Ошибки:</div>
+        <div id="ending_mistakes" class="mistakes">
+        </div>
+      </div>
+    </div>
+    <div id="header"></div>
+    <div id="upper_scroller_header">
+      <div id="wordlists_menu_activator" class="active">
+        <button id="wordlists_menu_button" class="main_button">
+          <i class="icon left fa-solid fa-list"></i>
+          ЕГЭ №9
+          <i class="icon right fa-solid fa-list"></i>
+        </button>
+      </div>
+    </div>
+    <div id="scroller_header">
+      <div id="mode_selector_wrapper">
+        <div id="select_mode_nd" class="active mode_selector">
+          <button class="main_button">БЕЗ<br>ПОВТОР.</button>
+        </div>
+        <span class="header_sep">|</span>
+        <div id="select_mode_fl" class="mode_selector">
+          <button class="main_button">ВЕСЬ<br>СПИСОК</button>
+        </div>
+      </div>
+      <div id="words_selector_wrapper">
+        <div id="select_amount_10" class="amount_selector">
+          <button class="words_selector main_button">10</button>
+        </div>
+        <div id="select_amount_25" class="amount_selector active">
+          <button class="words_selector main_button">25</button>
+        </div>
+        <div id="select_amount_50" class="amount_selector">
+          <button class="words_selector main_button">50</button>
+        </div>
+        <div id="select_amount_100" class="amount_selector">
+          <button class="words_selector main_button">100</button>
+        </div>
+        <div id="select_amount_custom" class="amount_selector">
+          <input type="text" id="words_amount_input" class="invisible" value="" , maxlength="4">
+          <button id="custom_amount_button" class="visible words_selector main_button"><i
+              class="fa-solid fa-pen-to-square"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="main_wrapper">
+      <div id="global_scrollers_wrapper">
+        <div class="scroller_wrapper cur" style="margin-left: 0px;">
+          <div class="word_scroller cur" style="margin-left: 0px;"></div>
+        </div>
+        <div id="input_box">
+          <input type="text" id="word_input" value="" maxlength="18">
+        </div>
+        <div class="scroller_wrapper prev">
+          <div class="word_scroller prev" style="margin-left: 0px;"></div>
+        </div>
+        <div class="words_counter">
+          <span id="all_counter"></span>
+          <span class="slash_sep"> / </span>
+          <span id="main_w_amount" class="w_amount"></span>
+        </div>
+        <div class="wl_words_counter">
+          <span id="main_correct_counter" class="correct_counter"></span>
+          <span class="slash_sep"> \ </span>
+          <span id="main_incorrect_counter" class="incorrect_counter"></span>
+        </div>
+        <div id="last_ending_button" class="invisible">
+          <button class="main_button">Открыть прошлый экран окончания</button>
+        </div>
+      </div>
+      <div id="current_mistakes_wrapper" class="mistakes_wrapper">
+        <div id="current_mistakes_title" class="mistakes_title">Ошибки:</div>
+        <div id="current_mistakes" class="mistakes">
+          <div class="vertical_sep"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="https://github.com/sensod9/gramoType">v1.0 <i class="fa-brands fa-github"></i> sensod9/gramoType</a> |
+      Нашёл
+      ошибку? Есть предложения? - <a href="https://t.me/sensod9">t.me/sensod9 <i class="fa-brands fa-telegram"></i></a>
+    </footer>
+  </main>
+  <script src="https://kit.fontawesome.com/6c1657ecb5.js" crossorigin="anonymous"></script>
+  <script src="words/wordlists.js"></script>
+  <script src="js/global_variables.js"></script>
+  <script src="js/main_functions.js"></script>
+  <script src="js/event_handlers.js"></script>
+</body>
+
+</html>
