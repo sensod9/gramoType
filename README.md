@@ -8,26 +8,6 @@ https://github.com/user-attachments/assets/72186b1b-9f68-4252-bba1-dc675c6ee150
 
 ***
 
-# gramoType v.offline
-### Полностью автономная версия
-<ul>
-  <li>Локально включены списки слов, шрифты; отсутсвуют куки</li>
-  <li>Списки слов не обновляются автоматически</li>
-</ul>
-
-### Для использования нужно:
-<ol>
-  <li>Скачать v.offline архив в релизах</li>
-  <li>Распаковать архив в любое удобное место</li>
-  <li>Запустить сайт локально, открыв <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/index.html">index.html</a></code> в браузере</li>
-</ol>
-
-### Для обновления списка слов нужно:
-<ol>
-  <li>Скачать новый <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/words/wordlists.js">wordlists.js</a></code>, располагающийся в <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/words/wordlists.js">gramoType_v.offline/words/</a></code></li>
-  <li>Заменить имеющийся файл <code>wordlists.js</code> новым</li>
-</ol>
-
 # Руководство по эксплуатации
 ## Задания
 ### Поделены на две группы:
@@ -47,6 +27,28 @@ https://github.com/user-attachments/assets/72186b1b-9f68-4252-bba1-dc675c6ee150
   <li>Для <b>быстрого перезапуска</b>, <b>отмены ввода количества слов</b>, <b>отмены выбора списков слов</b>, <b>выхода из экрана окончания</b>:</li>
       <ul><li>нажать <ins>"Escape"</ins> или <ins>"Tab"</ins></li></ul>
 </ul>
+
+***
+
+# gramoType v.offline
+### Полностью автономная версия
+<ul>
+  <li>Локально включены списки слов, шрифты; отсутсвуют куки</li>
+  <li>Списки слов не обновляются автоматически</li>
+</ul>
+
+### Для использования нужно:
+<ol>
+  <li>Скачать v.offline архив в релизах</li>
+  <li>Распаковать архив в любое удобное место</li>
+  <li>Запустить сайт локально, открыв <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/index.html">index.html</a></code> в браузере</li>
+</ol>
+
+### Для обновления списка слов нужно:
+<ol>
+  <li>Скачать новый <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/words/wordlists.js">wordlists.js</a></code>, располагающийся в <code><a href="https://github.com/sensod9/gramoType/blob/main/gramoType_v.offline/words/wordlists.js">gramoType_v.offline/words/</a></code></li>
+  <li>Заменить имеющийся файл <code>wordlists.js</code> новым</li>
+</ol>
 
 ***
 
