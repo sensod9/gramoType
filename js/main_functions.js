@@ -258,7 +258,7 @@ function fillScroller() {
   loaded_words_amount = 0;
 
   // pair_to_push[0] = pair_to_push[0].replace(/ /g, ' ');
-  amount_to_load = (words_amount < 14) ? words_amount : 15;
+  amount_to_load = (words_amount <= 14) ? words_amount : 15;
   if (select_mode_nd.classList.contains('active')) {
     words = shuffleList(words);
     for (let i = 0; i < amount_to_load; i++) {
