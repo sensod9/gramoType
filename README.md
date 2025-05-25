@@ -4,7 +4,7 @@
 
 https://github.com/user-attachments/assets/72186b1b-9f68-4252-bba1-dc675c6ee150
 > [!IMPORTANT]
-> ## На данный момент сайт не хоститься. Для пользования доступна offline версия
+> ## https://sensod9.github.io/gramoType/
 
 ***
 
