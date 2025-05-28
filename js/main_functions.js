@@ -218,7 +218,7 @@ function sendValue(text_value, w_index) {
   if (loaded_words_amount < words_amount) {
     let pair_to_push;
     if (select_mode_nd.classList.contains('active')) {
-      pair_to_push = words[loaded_words_amount];
+      pair_to_push = words[loaded_words_amount % words.length];
     } else {
       pair_to_push = words[Math.floor(Math.random() * words.length)];
     }
