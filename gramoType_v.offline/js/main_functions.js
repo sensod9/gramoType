@@ -101,10 +101,10 @@ function refreshInlcuded() {
 }
 
 function buildEndingScreen() {
-  ending_mistakes.innerHTML = '';
+  let temp_innerHTML = ``;
   ending_title.innerHTML = wordlists_menu_button.textContent;
   for (mistake of mistakes_list) {
-    ending_mistakes.innerHTML += `
+    temp_innerHTML += `
           <div class="vertical_sep"></div>
           <div class="mistake">
             <div class="basic_word">${mistake[2]}</div>
@@ -113,6 +113,7 @@ function buildEndingScreen() {
           </div>
     `;
   }
+  ending_mistakes.innerHTML = temp_innerHTML;
   ending_mistakes.innerHTML += `<div class="vertical_sep"></div>`;
   let accuracy = ((correct_count / words_amount) * 100).toFixed(1);
   let ending_accuracy = document.getElementById('ending_accuracy');
