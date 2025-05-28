@@ -50,12 +50,15 @@ document.addEventListener('mousedown', function(event) {
         hideWordlistsMenu();
       } else if (wordlists_menu.contains(event.target)) return (0);
     }
+    word_input.focus();
+
   } else {
     if (ending_crossmark.contains(event.target) || !ending_screen.contains(event.target)) {
       if (!refreshed_after_ending) {
         startNew();
         refreshed_after_ending = 1;
       }
+
       hideEndingScreen();
     }
   }
@@ -88,11 +91,10 @@ document.addEventListener('keydown', function(event) {
         }
         word_input.focus();
       }
-    } else if (document.activeElement != word_input) {
-      if (!(event.key in NUMBERS) && (!(event.key == 'Backspace'))) {
-        event.preventDefault();
-      }
     }
+  } else if (document.activeElement != word_input) {
+    if (!(event.key in NUMBERS) && (!(event.key == 'Backspace')))
+      event.preventDefault(); // впредь не ставлю фигурные скобки если однострочный иф блок. пох на рекомендованный стайл
   }
 });
 
