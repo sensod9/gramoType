@@ -161,12 +161,18 @@ function pushCurrentMistake(mistake) {
   ` + current_mistakes.innerHTML;
 }
 
+function eFormatted(text_value) {
+  text_value = text_value.replaceAll("ё", "е");
+  text_value = text_value.replaceAll("Ё", "Е");
+  return text_value;
+}
+
 function sendValue(text_value, w_index) {
   word_input.value = '';
   let prev_w = cur_scroller.children[((loaded_words_amount > 29) ? 16 : w_index) - 1];
 
   if (w_index == words_amount) {
-    if (text_value == word_list[w_index - 1][1]) {
+    if (eFormatted(text_value) == eFormatted(word_list[w_index - 1][1])) {
       main_correct_counter.innerHTML = ++correct_count;
     } else {
       main_incorrect_counter.innerHTML = ++incorrect_count;
@@ -188,7 +194,7 @@ function sendValue(text_value, w_index) {
   prev_w.classList.remove('current');
 
   prev_scroller.innerHTML = `<span class='word last passed'>${word_list[w_index - 1][1]}<span>  </span></span>` + prev_scroller.innerHTML;
-  if (text_value == word_list[w_index - 1][1]) {
+  if (eFormatted(text_value) == eFormatted(word_list[w_index - 1][1])) {
     prev_w.classList.add('correct');
     prev_scroller.firstElementChild.classList.add('correct');
     main_correct_counter.innerHTML = ++correct_count;
@@ -216,7 +222,12 @@ function sendValue(text_value, w_index) {
   }
 
   if (loaded_words_amount < words_amount) {
-    let pair_to_push = words[Math.floor(Math.random() * words.length)];
+    let pair_to_push;
+    if (select_mode_nd.classList.contains('active')) {
+      pair_to_push = words[loaded_words_amount % words.length];
+    } else {
+      pair_to_push = words[Math.floor(Math.random() * words.length)];
+    }
     loadOneWord(pair_to_push);
   }
 }
@@ -258,7 +269,7 @@ function fillScroller() {
   loaded_words_amount = 0;
 
   // pair_to_push[0] = pair_to_push[0].replace(/ /g, ' ');
-  amount_to_load = (words_amount <= 14) ? words_amount : 15;
+  amount_to_load = (words_amount < 14) ? words_amount : 15;
   if (select_mode_nd.classList.contains('active')) {
     words = shuffleList(words);
     for (let i = 0; i < amount_to_load; i++) {
