@@ -148,7 +148,6 @@ function hideEndingScreen() {
 }
 
 function pushCurrentMistake(mistake) {
-  console.log(mistake);
   if (current_mistakes.childElementCount > 41) {
     current_mistakes.removeChild(current_mistakes.children[current_mistakes.childElementCount - 2])
   }
@@ -171,9 +170,10 @@ function eFormatted(text_value) {
 function sendValue(text_value, w_index) {
   word_input.value = '';
   let prev_w = cur_scroller.children[((loaded_words_amount > 29) ? 16 : w_index) - 1];
+  let correct_value = eFormatted(word_list[w_index - 1][1]);
 
   if (w_index == words_amount) {
-    if (eFormatted(text_value) == eFormatted(word_list[w_index - 1][1])) {
+    if ((eFormatted(text_value) == correct_value) || (correct_value == correct_value.toLowerCase() && eFormatted(text_value).toLowerCase() == correct_value)) {
       main_correct_counter.innerHTML = ++correct_count;
     } else {
       main_incorrect_counter.innerHTML = ++incorrect_count;
@@ -195,7 +195,7 @@ function sendValue(text_value, w_index) {
   prev_w.classList.remove('current');
 
   prev_scroller.innerHTML = `<span class='word last passed'>${word_list[w_index - 1][1]}<span>  </span></span>` + prev_scroller.innerHTML;
-  if (eFormatted(text_value) == eFormatted(word_list[w_index - 1][1])) {
+  if ((eFormatted(text_value) == correct_value) || (correct_value == correct_value.toLowerCase() && eFormatted(text_value).toLowerCase() == correct_value)) {
     prev_w.classList.add('correct');
     prev_scroller.firstElementChild.classList.add('correct');
     main_correct_counter.innerHTML = ++correct_count;
@@ -269,7 +269,6 @@ function fillScroller() {
   mistakes_list = [];
   loaded_words_amount = 0;
 
-  // pair_to_push[0] = pair_to_push[0].replace(/ /g, ' ');
   amount_to_load = (words_amount < 14) ? words_amount : 15;
   if (select_mode_nd.classList.contains('active')) {
     words = shuffleList(words);
