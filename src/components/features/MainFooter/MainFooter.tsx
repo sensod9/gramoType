@@ -9,7 +9,7 @@ function MainFooter() {
 	function handleClick() {
 		if (!activeOptions.hardMode) {
 			setActiveScreenEffect('flash');
-			playSound('/sounds/Thunder_01.ogg');
+			playSound('sounds/Thunder_01.ogg');
 		}
 		setActiveOptions({ ...activeOptions, hardMode: !activeOptions.hardMode });
 		setActivePopUp(null);
