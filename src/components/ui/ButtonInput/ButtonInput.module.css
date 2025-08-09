@@ -1,0 +1,20 @@
+.button {
+	composes: button from "../OptionButton/OptionButton.module.css";
+	width: clamp(58px, 7vw, 80px) !important;
+}
+
+.button:not(.input) {
+	font-size: clamp(17px, 2.2vw, 22px);
+}
+
+.button.hidden {
+	display: none;
+}
+
+.active {
+	composes: active from "../OptionButton/OptionButton.module.css";
+}
+
+.input {
+	outline: none;
+}

@@ -1,0 +1,15 @@
+.correct {
+	color: var(--correctTyped);
+}
+
+.accent.correct {
+	color: var(--correctTypedAccent);
+}
+
+.incorrect {
+	color: var(--incorrectTyped);
+}
+
+.accent.incorrect {
+	color: var(--incorrectTypedAccent);
+}

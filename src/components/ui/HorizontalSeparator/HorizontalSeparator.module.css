@@ -1,0 +1,10 @@
+.separator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	color: var(--lightGrayFg);
+
+	font-size: clamp(14px, 1vw, 17px);
+	font-weight: bold;
+}

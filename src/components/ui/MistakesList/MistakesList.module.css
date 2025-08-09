@@ -1,0 +1,87 @@
+.container {
+	margin: 3px 0 3px 10px;
+	background-color: var(--darkBgColor);
+
+	font-family: 'PT Mono';
+	font-size: clamp(22px, 3vw, 36px);
+	text-align: center;
+
+	border-color: var(--softGrayFg);
+	border-style: solid;
+	border-radius: 10px 0 0 10px;
+	border-width: 2px;
+}
+
+.title {
+	font-size: clamp(19px, 2.2vw, 31px);
+	background-color: var(--darkAccent);
+	margin: 0 0 0 0;
+
+	border-color: var(--softGrayFg);
+	border-style: none none solid none;
+}
+
+.hardMode {
+	border-color: var(--incorrectTypedAccent);
+}
+
+.hardMode .title {
+	background-color: var(--incorrectTypedAccent);
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.list {
+	scrollbar-color: var(--darkBgColor) var(--softGrayFg);
+	overflow-y: scroll;
+}
+
+div.left {
+	border-radius: 10px 0 0 10px;
+}
+
+div.center {
+	border-radius: 10px 10px 0 10px;
+}
+
+p.left {
+	border-radius: 10px 0 0 0;
+}
+
+p.center {
+	border-radius: 10px 10px 0 0;
+}
+
+.smallHeight {
+	height: clamp(205px, 23.4vw, 258px);
+}
+
+.mediumHeight {
+	height: clamp(300px, 33.9vw, 425px);
+}
+
+.bigHeight {
+	height: clamp(345px, 46.8vw, 480px);
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.container.adaptiveWidth {
+	margin: 0 0 0 0;
+}
+
+.adaptiveWidth.mediumFont {
+	width: clamp(200px, 31.5vw, 390px);
+}
+
+.mediumFont {
+	font-size: clamp(19px, 2.2vw, 28px);
+}
+
+.bigFont {
+	font-size: clamp(22px, 3vw, 32px);
+}

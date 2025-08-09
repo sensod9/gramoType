@@ -1,0 +1,75 @@
+.button {
+	background-color: var(--darkBgColor);
+	color: var(--lighterGrayFg);
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	text-align: center;
+	width: clamp(48px, 6vw, 60px);
+	height: clamp(26px, 4vw, 28px);
+	font-size: clamp(19px, 2.3vw, 21px);
+	font-weight: bold;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--softGrayFg);
+	border-radius: 0 10px 0 10px;
+
+	transition: 0.3s;
+}
+
+.active {
+	color: var(--softAccent);
+	background-color: var(--darkAccent);
+	border-color: var(--mainAccent);
+}
+
+.button:hover {
+	background-color: var(--softerDarkAccent);
+}
+
+.borderRight {
+	border-radius: 0 10px 0 10px;
+}
+
+.borderLeft {
+	border-radius: 10px 0 10px 0;
+}
+
+.borderDown {
+	border-radius: 0 0 10px 10px;
+}
+
+.borderUp {
+	border-radius: 10px 10px 0 0;
+}
+
+.borderCircle {
+	border-radius: 10px 10px 10px 10px;
+}
+
+.borderSquare {
+	border-radius: 0 0 0 0;
+}
+
+.small {
+	font-size: clamp(15px, 2vw, 18px);
+}
+
+.smaller {
+	font-size: clamp(8.6px, 1vw, 10px);
+}
+
+.fullWidth {
+	justify-content: space-between;
+	width: 100%;
+}
+
+.doubleHeight {
+	height: clamp(36px, 4vw, 48px);
+}

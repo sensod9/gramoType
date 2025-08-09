@@ -1,0 +1,19 @@
+.element {
+	margin: 0 3px 0 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.question {
+	border-radius: 5px 5px 0 0;
+	background-color: var(--softGrayFg);
+}
+
+.correct {
+	background-color: var(--correctTyped);
+}
+
+.incorrect {
+	border-radius: 0 0 5px 5px;
+	background-color: var(--incorrectTyped);
+}

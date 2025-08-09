@@ -1,0 +1,11 @@
+.gridContainer {
+	display: grid;
+	gap: 0.3rem;
+	justify-content: center;
+}
+
+.menu {
+	display: flex;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}

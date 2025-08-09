@@ -1,0 +1,76 @@
+.slider {
+	user-select: none;
+	white-space: nowrap;
+	margin: 0;
+
+	overflow: hidden;
+	width: 100%;
+	scrollbar-width: none;
+}
+
+.currentWordWrapper {
+	text-align: center;
+}
+
+.passedWordsWrapper {
+	text-align: right;
+	overflow: hidden;
+	direction: rtl;
+}
+
+.grid {
+	background-color: rgba(0, 0, 0, 0);
+	
+	display: grid;
+	gap: 20px;
+	grid-template-columns: minmax(0, 1fr) fit-content(100%) minmax(0, 1fr);
+}
+
+.absoluteGrid {
+	background-color: rgba(0, 0, 0, 0);
+	
+	display: grid;
+	gap: 20px;
+	grid-template-columns: minmax(0, 1fr) fit-content(100%) minmax(0, 1fr);
+	width: 100vw;
+  position: absolute;
+	left: 0;
+}
+
+.background {
+	position: absolute;
+	z-index: -1;
+
+	white-space: nowrap;
+	margin: 0;
+
+	overflow: hidden;
+	width: 100%;
+	scrollbar-width: none;
+}
+
+.leftElement {
+	background-color: var(--darkBgColor);
+	width: clamp(324px, 45vw, 504px);
+	text-align: center;
+
+	border-color: var(--softGrayFg);
+	border-style: solid none solid solid;
+	border-radius: 0 0 0 10px;
+	border-width: 2px;
+}
+
+.centerElement {
+	background-color: var(--darkBgColor);
+
+	display: block;
+	width: 100%;
+
+	border-color: var(--softGrayFg);
+	border-style: solid none solid none;
+	border-width: 2px;
+}
+
+.gridElement {
+  grid-column: 2 / 4; /* Занимает от 1-й до 3-й линии (т.е. две колонки) */
+}

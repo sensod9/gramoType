@@ -1,0 +1,143 @@
+:root {
+	--darkBgColor: #312d31;
+	--softerDarkBgColor: #383338;
+	--softGrayFg: #5a525d;
+	--lightGrayFg: #747474;
+	--lighterGrayFg: #86808a;
+
+  --mainAccent: #8534c7;
+	--softAccent: #fdbef9;
+	--darkerSoftAccent: #8c66ab;
+	--darkAccent: #23002d;
+	--softerDarkAccent: #412241;
+
+	--transparentSofterDarkAccent: rgba(45, 27, 51, 0.94);
+
+  --correctTypedAccent: #249e38;
+  --correctTyped: #1e7341;
+  --incorrectTypedAccent: #a92335;
+  --incorrectTyped: #8c3b46;
+}
+
+body {
+	cursor: default;
+	color: #fff;
+	margin-top: 40px;
+	font-family: 'PT Mono';
+	font-size: clamp(28px, 4vw, 42px);
+	
+	overflow: hidden;
+
+	background: linear-gradient(#35233b, #2b2b2b);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+h1 {
+  margin-left: 10px;
+  font-size: clamp(35px, 4vw, 40px);
+	font-weight: bold;
+  margin-left: 10px;
+	margin-top: 14px;
+  background: linear-gradient(to right,
+      #8534c7 20%,
+      #5c218d 40%,
+      #622f8d 70%,
+      #a04be5 80%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: hGradient 8s ease-in-out infinite alternate;
+}
+
+@keyframes hGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+a {
+  color: var(--darkerSoftAccent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--mainAccent);
+}
+
+
+.soft-accent {
+	color: var(--softAccent);
+}
+
+.correct-typed-accent {
+	color: var(--correctTypedAccent);
+}
+
+.correct-typed {
+	color: var(--correctTyped);
+}
+
+.incorrect-typed-accent {
+	color: var(--incorrectTypedAccent);
+}
+
+.incorrect-typed {
+	color: var(--incorrectTyped);
+}
+
+.wide {
+	display: none;
+}
+
+.medium {
+	display: none;
+}
+
+.narrow {
+	display: none;
+}
+
+@media (min-width: 1126px) {
+	.wide {
+		display: block;
+	}
+}
+
+@media (min-width: 910px) and (max-width: 1125.9px) {
+	.medium {
+		display: block;
+	}
+}
+
+@media (max-width: 909.9px) {
+	.narrow {
+		display: block;
+	}
+}
+
+@media (max-width: 1126px) {
+	body {
+		margin-top: 0;
+	}
+}
+
+.blurred {
+	filter: blur(4px);
+}
+
+.low-order {
+	order: -5;
+}
+
+.invisibleButton {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	color: var(--darkerSoftAccent);
+}
