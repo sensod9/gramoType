@@ -3,6 +3,8 @@ import type { TWordlist } from "../types/TWordlist";
 import type { TMistakes } from "../types/TMistakes";
 import type { TPassedWords } from "../types/TPassedWords";
 import type { TActiveOptions } from "../types/TActiveOptions";
+import type { TCookies } from "../types/TCookies";
+import type { TProgress } from "../types/TProgress";
 
 type TWordsContext = {
 	wordlistKeys: string[];
@@ -36,6 +38,10 @@ type TWordsContext = {
 	setActiveScreenEffect: (value: string | null) => void;
 	activeOptions: TActiveOptions;
 	setActiveOptions: (value: TActiveOptions) => void;
+	progress: TProgress;
+	setProgress: (value: TProgress) => void;
+	cookies: TCookies;
+	setCookies: (value: TCookies) => void;
 	registerWordsInputRef: (value: HTMLInputElement | null) => void;
 	focusWordsInput: () => void;
 	checkWord: (value: string) => boolean;
