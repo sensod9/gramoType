@@ -33,7 +33,7 @@ function InputRowWrapper() {
 							<MainMistakesList side='center' height='small' />
 						</div>
 					</div>
-					<div className='medium mt-2 position-absolute' style={{marginLeft: 'clamp(162px, 17.2vw, 170px)'}}>
+					<div className='medium mt-2 position-absolute' style={{marginLeft: 'clamp(143px, 19vw, 190px)'}}>
 						<MainMistakesList side='center' height='medium' width='adaptive' />
 					</div>
 				</div>

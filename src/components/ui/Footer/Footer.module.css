@@ -1,9 +1,16 @@
 .footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
 	position: fixed;
 	left: 0%;
 	bottom: 0%;
-	width: 100%;
-  line-height: clamp(19px, 2vw, 23px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; 
+  line-height: clamp(20px, 2.1vw, 25px);
   overflow-wrap: break-word;
 
   padding-top: 4px;
@@ -11,20 +18,9 @@
   text-align: center;
 	padding-bottom: 0;
 
-	font-size: clamp(16px, 2vw, 20px);
+	font-size: clamp(20px, 2.1vw, 25px);
 
 	background-color: var(--darkBgColor);
-}
-
-.wrapper {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.icon {
-	font-size: clamp(14px, 1.4vw, 17px);
 }
 
 .inlineContainer {

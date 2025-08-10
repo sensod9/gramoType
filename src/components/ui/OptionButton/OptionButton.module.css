@@ -10,9 +10,9 @@
 	justify-content: center;
 	
 	text-align: center;
-	width: clamp(48px, 6vw, 60px);
-	height: clamp(26px, 4vw, 28px);
-	font-size: clamp(19px, 2.3vw, 21px);
+	width: clamp(52.8px, 6.6vw, 66px);
+	height: clamp(28.6px, 4.4vw, 30.8px);
+	font-size: clamp(19px, 2.3vw, 23.1px);
 	font-weight: bold;
 
 	border-style: solid;
@@ -58,11 +58,11 @@
 }
 
 .small {
-	font-size: clamp(15px, 2vw, 18px);
+	font-size: clamp(16.5px, 2.2vw, 19.8px);
 }
 
 .smaller {
-	font-size: clamp(8.6px, 1vw, 10px);
+	font-size: clamp(9.46px, 1.1vw, 11px);
 }
 
 .fullWidth {
@@ -71,5 +71,5 @@
 }
 
 .doubleHeight {
-	height: clamp(36px, 4vw, 48px);
+	height: clamp(39.6px, 4.4vw, 52.8px);
 }

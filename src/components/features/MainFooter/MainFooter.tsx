@@ -23,8 +23,8 @@ function MainFooter() {
 		</>;
 	const rightElement =
 		<>
-			<a href="https://t.me/chto9chto9">t.me/chto9chto9</a> <button className='invisibleButton' onClick={handleClick}><i className="fa-brands fa-telegram"></i></button><br />
-			<a href="https://www.youtube.com/@sensod9">youtube.com/sensod9 <i className="fa-brands fa-youtube"></i></a>
+			<a href="https://t.me/chto9chto9">tgk/chto9chto9</a> <button className='invisibleButton' onClick={handleClick}><i className="fa-brands fa-telegram"></i></button><br />
+			<a href="https://www.youtube.com/@sensod9">yt/sensod9 <i className="fa-brands fa-youtube"></i></a>
 		</>;
 
 	return (

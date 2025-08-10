@@ -32,7 +32,7 @@
 	background-color: var(--transparentSofterDarkAccent);
 
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: clamp(15px, 2vw, 18px);
+	font-size: clamp(16.5px, 2.2vw, 19.8px);
 	font-weight: bold;
 	white-space: nowrap;
 

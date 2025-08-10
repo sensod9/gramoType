@@ -7,7 +7,7 @@
 	background-color: white;
 	z-index: 100;
   pointer-events: none;
-  animation: flash 250ms ease-out;
+  animation: flash 300ms ease-out;
 }
 
 @keyframes flash {

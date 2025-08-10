@@ -55,15 +55,15 @@ p.center {
 }
 
 .smallHeight {
-	height: clamp(205px, 23.4vw, 258px);
+	height: clamp(225.5px, 25.74vw, 283.8px);
 }
 
 .mediumHeight {
-	height: clamp(300px, 33.9vw, 425px);
+	height: clamp(330px, 37.29vw, 460px);
 }
 
 .bigHeight {
-	height: clamp(345px, 46.8vw, 480px);
+	height: clamp(379.5px, 51.48vw, 428px);
 }
 
 .fullWidth {
@@ -75,13 +75,13 @@ p.center {
 }
 
 .adaptiveWidth.mediumFont {
-	width: clamp(200px, 31.5vw, 390px);
+	width: clamp(220px, 30.5vw, 429px);
 }
 
 .mediumFont {
-	font-size: clamp(19px, 2.2vw, 28px);
+	font-size: clamp(20.9px, 2.42vw, 30.8px);
 }
 
 .bigFont {
-	font-size: clamp(22px, 3vw, 32px);
+	font-size: clamp(24.2px, 3.3vw, 35.2px);
 }

@@ -17,8 +17,8 @@
 	border-style: solid;
 	border-width: 2px;
 
-	width: clamp(250px, 34vw, 330px);
-	font-size: clamp(34px, 4vw, 45px);
+	width: clamp(275px, 37.4vw, 363px);
+	font-size: clamp(37.4px, 4.4vw, 49.5px);
 }
 
 .top {
@@ -26,24 +26,24 @@
 }
 
 .bottom {
-	font-size: clamp(28px, 3vw, 36px);
+	font-size: clamp(30.8px, 3.3vw, 39.6px);
 	border-radius: 0 0 10px 10px;
 }
 
 .big {
-	width: clamp(325px, 55vw, 530px);
+	width: clamp(357.5px, 60.5vw, 583px);
 }
 
 .big.top {
-	font-size: clamp(35px, 5vw, 55px);
+	font-size: clamp(38.5px, 5.5vw, 60.5px);
 }
 
 .big.bottom {
-	font-size: clamp(26px, 4vw, 45px);
+	font-size: clamp(28.6px, 4.4vw, 49.5px);
 }
 
 .indicator {
-	width: clamp(14px, 2vw, 20px);
+	width: clamp(15.4px, 2.2vw, 22px);
 
 	border-color: var(--softGrayFg);
 	border-style: solid;

@@ -60,7 +60,7 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 		};
 		if (strActiveOptions) {
 			const arrActiveOptions = strActiveOptions.split(':');
-			activeOptions = { wordsCountKey: 'custom', noRepeat: arrActiveOptions[1] === 'true', hardMode: arrActiveOptions[2] === 'true' };
+			activeOptions = { wordsCountKey: 'custom', noRepeat: arrActiveOptions[1] === 'true', hardMode: false };
 		}
 
 		let progress: {correctWordsCount: number, completedWordlists: null | string[]} = { correctWordsCount: 0, completedWordlists: null};
