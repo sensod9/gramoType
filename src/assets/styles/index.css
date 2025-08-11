@@ -38,7 +38,7 @@ body {
 
 h1 {
   margin-left: 10px;
-  font-size: clamp(38.5px, 4.4vw, 44px);
+  font-size: clamp(34px, 4.4vw, 44px);
 	font-weight: bold;
   margin-left: 10px;
 	margin-top: 14px;

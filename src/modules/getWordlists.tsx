@@ -1,7 +1,7 @@
 import type { TWordlists } from "../types/TWordlists";
 
 async function getWordlists(): Promise<TWordlists> {
-	const url = "https://raw.githubusercontent.com/sensod9/gramoType/refs/heads/main/wordlists.json";
+	const url = "https://raw.githubusercontent.com/sensod9/gramoType/refs/heads/legacy/wordtest.json";
 
 	try {
 		const response = await fetch(url);

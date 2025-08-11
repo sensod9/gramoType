@@ -23,8 +23,8 @@ function TrophyBar({ orientation, justify }: Props) {
 
 	return (
 		<div className={`d-flex ${orientation == 'horizontal' ? (justify == 'start' ? 'flex-row gap-2 justify-content-start' : 'flex-row gap-2 justify-content-end') : 'flex-column'}`}>
-			<TrophyStar phase={correctWordsPhase} />
-			<TrophyStar phase={completedWordlistsPhase} />
+			<TrophyStar phase={correctWordsPhase} title={progress.correctWordsCount.toString()}/>
+			<TrophyStar phase={completedWordlistsPhase} title={progress.maxCompletedWordlistsAtOnce.toString()}/>
 		</div>
 	);
 }

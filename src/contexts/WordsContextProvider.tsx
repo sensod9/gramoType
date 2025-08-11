@@ -198,7 +198,7 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 						}]);
 					} else {
 						setPreviousMistakes(currentMistakes);
-						if (!currentMistakes && activeOptions.wordsCountKey == 'full') {
+						if (!currentMistakes && activeOptions.wordsCountKey == 'full' && activeOptions.noRepeat) {
 							const completedWordlists = progress.completedWordlists ? progress.completedWordlists : wordlistKeys;
 							if (progress.completedWordlists) {
 								wordlistKeys.forEach((key) => completedWordlists.add(key));

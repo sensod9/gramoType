@@ -55,11 +55,11 @@ p.center {
 }
 
 .smallHeight {
-	height: clamp(225.5px, 25.74vw, 283.8px);
+	height: clamp(213px, 25.74vw, 283.8px);
 }
 
 .mediumHeight {
-	height: clamp(330px, 37.29vw, 460px);
+	height: clamp(310px, 37.29vw, 465px);
 }
 
 .bigHeight {
@@ -79,7 +79,7 @@ p.center {
 }
 
 .mediumFont {
-	font-size: clamp(20.9px, 2.42vw, 30.8px);
+	font-size: clamp(19.7px, 2.42vw, 30.8px);
 }
 
 .bigFont {
