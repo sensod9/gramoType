@@ -2,26 +2,58 @@
 	font-size: clamp(40px, 5vw, 65px);
 }
 
+.title {
+	position: absolute;
+	
+	font-size: clamp(7px, 1.3vw, 13px);
+	color: var(--lighterGrayFg);	
+}
+
 .phaseZero {
 	color: var(--softGrayFg);
 }
 
 .phaseOne {
 	color: #3b5f7c;	
+  -webkit-text-stroke: 3px #3b719d;
+  paint-order: stroke;
 }
 
 .phaseTwo {
-	color: #9e654f;	
+	color: #b57156;	
+  -webkit-text-stroke: 5px #ac5930;
+  paint-order: stroke;
+  text-shadow: 
+    0 0 6px #f1940a,
+    0 0 5px #000000;
 }
 
 .phaseThree {
 	color: #30bd79;	
+  -webkit-text-stroke: 5px #2a9a64;
+  paint-order: stroke;
+  text-shadow: 
+    0 0 5px #c75727;
 }
 
 .phaseFour {
-	color: #fcd913;	
+	color: #ffbc02;	
+  -webkit-text-stroke: 4px #ffa202;
+  paint-order: stroke;
+  text-shadow: 
+    0 0 5px #c75227, 
+    0 0 10px #dd7c15,
+    0 0 15px #8d772f,
+    0 0 20px #ffffff00;
 }
 
 .phaseFive {
 	color: #fc1313;	
+  -webkit-text-stroke: 5px #ff0000;
+  paint-order: stroke;
+  text-shadow: 
+    0 0 5px #8534c7, 
+    0 0 10px #5c218d,
+    0 0 15px #622f8d,
+    0 0 20px #a04be5;
 }

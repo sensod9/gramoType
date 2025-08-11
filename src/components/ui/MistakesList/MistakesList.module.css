@@ -14,8 +14,10 @@
 
 .title {
 	font-size: clamp(19px, 2.2vw, 31px);
+	line-height: clamp(23px, 3vw, 35px);
 	background-color: var(--darkAccent);
 	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 
 	border-color: var(--softGrayFg);
 	border-style: none none solid none;
@@ -55,7 +57,7 @@ p.center {
 }
 
 .smallHeight {
-	height: clamp(213px, 25.74vw, 283.8px);
+	height: clamp(213px, 26vw, 283.8px);
 }
 
 .mediumHeight {
