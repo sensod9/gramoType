@@ -17,7 +17,7 @@
 	border-radius: 10px 0 0 10px;
 	border-width: 2px;
 
-	width: clamp(418px, 77vw, 715px);
+	width: clamp(390px, 75vw, 715px);
 }
 
 .title {
