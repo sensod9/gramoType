@@ -5,43 +5,21 @@ import type { TMistakes } from '../types/TMistakes';
 import type { TPassedWords } from '../types/TPassedWords';
 import getCookie from '../modules/getCookie';
 import setCookie from '../modules/setCookie';
+import type { TProgress } from '../types/TProgress';
 
 function WordsContextProvider({ children }: { children: ReactNode }) {
-	const [cookies, setCookies] = useState(getStateFromCookies());
-	const [wordlistKeys, setWordlistKeys] = useState(cookies.wordlistKeys);
-	const [wordsCount, setWordsCount] = useState(cookies.wordsCount);
-	const { wordlist: wordlistTemp, initLength: fullWordlistLengthTemp } = getRandomPairs(wordsCount, wordlistKeys);
-	const [wordlist, setWordlist] = useState(wordlistTemp);
-	const [fullWordlistLength, setFullWordlistLength] = useState(fullWordlistLengthTemp);
-	const [activeOptions, setActiveOptions] = useState({
-		wordsCountKey: cookies.wordsCount == fullWordlistLength ? 'full'
-					: ([25, 50, 100].includes(cookies.wordsCount) ? cookies.wordsCount.toString()
-						: 'custom'),
-		noRepeat: cookies.activeOptions.noRepeat,
-		hardMode: cookies.activeOptions.hardMode
-	});
-	const [currentWordIndex, setCurrentWordIndex] = useState(0);
-	const [mistakes, setMistakes] = useState<null | TMistakes>(cookies.mistakes);
-	const [currentMistakes, setCurrentMistakes] = useState<null | TMistakes>(null);
-	const [previousWordlistKeys, setPreviousWordlistKeys] = useState<null | string[]>(null);
-	const [previousWordsCount, setPreviousWordsCount] = useState<null | number>(null);
-	const [previousMistakes, setPreviousMistakes] = useState<null | TMistakes>(null);
-	const [passedWords, setPassedWords] = useState<null | TPassedWords>(null);
-	const [activePopUp, setActivePopUp] = useState<null | string>(null);
-	const [activeScreenEffect, setActiveScreenEffect] = useState<null | string>(null);
-	const [progress, setProgress] = useState(cookies.progress);
-
+	const cookies = getStateFromCookies();
 	function getStateFromCookies() {
 		{/*
 				'wordlistKeys: EGE9,EGE10;'
 				'wordsCount: 99;'
 				'mistakes: п.ражение:паражение:поражение;'
 				'activeOptions: 25:true:true;'
-				'progress: 999:EGE9,EGE10;'
+				'progress: 999:0:EGE9,EGE10;'
 			*/}
 
 		const strWordlistKeys = getCookie('wordlistKeys');
-		const wordlistKeys = strWordlistKeys ? strWordlistKeys.split(',') : ['EGE9'];
+		const wordlistKeys = new Set(strWordlistKeys ? strWordlistKeys.split(',') : ['EGE9']);
 
 		const strWordsCount = getCookie('wordsCount');
 		const wordsCount = strWordsCount ? parseInt(strWordsCount) : 25;
@@ -63,14 +41,14 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 			activeOptions = { wordsCountKey: 'custom', noRepeat: arrActiveOptions[1] === 'true', hardMode: false };
 		}
 
-		let progress: {correctWordsCount: number, completedWordlists: null | string[]} = { correctWordsCount: 0, completedWordlists: null};
+		let progress: TProgress = { correctWordsCount: 0, maxCompletedWordlistsAtOnce: 0, completedWordlists: null};
 		const strProgress = getCookie('progress');
 		if (strProgress) {
 			const arrProgress = strProgress.split(':');
-			if (arrProgress.length > 1) {
-				progress = { correctWordsCount: parseInt(arrProgress[0]), completedWordlists: arrProgress[1].split(',') };
+			if (arrProgress.length > 2) {
+				progress = { correctWordsCount: parseInt(arrProgress[0]), maxCompletedWordlistsAtOnce: parseInt(arrProgress[1]), completedWordlists: new Set(arrProgress[2].split(',')) };
 			} else {
-				progress = { correctWordsCount: parseInt(arrProgress[0]), completedWordlists: null };
+				progress = { correctWordsCount: parseInt(arrProgress[0]), maxCompletedWordlistsAtOnce: parseInt(arrProgress[1]), completedWordlists: null };
 			}
 		}
 		
@@ -82,9 +60,32 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 			progress: progress
 		}
 	}
+	const [wordlistKeys, setWordlistKeys] = useState(cookies.wordlistKeys);
+	const [wordsCount, setWordsCount] = useState(cookies.wordsCount);
+	const { wordlist: wordlistTemp, initLength: fullWordlistLengthTemp } = getRandomPairs(wordsCount, wordlistKeys);
+	const [wordlist, setWordlist] = useState(wordlistTemp);
+	const [fullWordlistLength, setFullWordlistLength] = useState(fullWordlistLengthTemp);
+	const [activeOptions, setActiveOptions] = useState({
+		wordsCountKey: cookies.wordsCount == fullWordlistLength ? 'full'
+					: ([25, 50, 100].includes(cookies.wordsCount) ? cookies.wordsCount.toString()
+						: 'custom'),
+		noRepeat: cookies.activeOptions.noRepeat,
+		hardMode: cookies.activeOptions.hardMode
+	});
+	const [mistakes, setMistakes] = useState<null | TMistakes>(cookies.mistakes);
+
+	const [currentWordIndex, setCurrentWordIndex] = useState(0);
+	const [currentMistakes, setCurrentMistakes] = useState<null | TMistakes>(null);
+	const [previousWordlistKeys, setPreviousWordlistKeys] = useState<null | Set<string>>(null);
+	const [previousWordsCount, setPreviousWordsCount] = useState<null | number>(null);
+	const [previousMistakes, setPreviousMistakes] = useState<null | TMistakes>(null);
+	const [passedWords, setPassedWords] = useState<null | TPassedWords>(null);
+	const [activePopUp, setActivePopUp] = useState<null | string>(null);
+	const [activeScreenEffect, setActiveScreenEffect] = useState<null | string>(null);
+	const [progress, setProgress] = useState(cookies.progress);
 
 	useEffect(() => {
-		setCookie('wordlistKeys', wordlistKeys.join(','));
+		setCookie('wordlistKeys', [...wordlistKeys].join(','));
 	}, [wordlistKeys]);
 	
 	useEffect(() => {
@@ -102,7 +103,7 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 	}, [activeOptions]);
 	
 	useEffect(() => {
-		setCookie('progress', `${[progress.correctWordsCount, progress.completedWordlists ? (':' + progress.completedWordlists.join(',')) : ''].join('')}`);
+		setCookie('progress', `${[progress.correctWordsCount, ':', progress.maxCompletedWordlistsAtOnce, progress.completedWordlists ? (':' + [...progress.completedWordlists].join(',')) : ''].join('')}`);
 	}, [progress]);
 	
 	const wordsInputRef = useRef<null | HTMLInputElement>(null);
@@ -117,6 +118,7 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 
 	function checkWord(word: string) {
 		if (word.replaceAll('ё', 'е') == wordlist[currentWordIndex][1].replaceAll('ё', 'е')) {
+			setProgress({...progress, correctWordsCount: progress.correctWordsCount + 1})
 			return true;
 		} else {
 			addCurrentMistake(word);
@@ -150,7 +152,6 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 	function addPassedWord(word: string) {
 		setCurrentWordIndex((prev) => prev + 1);
 		const isCorrect = checkWord(word);
-		if (isCorrect) setProgress({...progress, correctWordsCount: progress.correctWordsCount + 1});
 		if (activeOptions.hardMode && !isCorrect) {
 			resetWords();
 			return;
@@ -170,16 +171,16 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 
 	function resetWords({ resetWordsCount = wordsCount, resetOptions = activeOptions, resetWordlistKeys = wordlistKeys, resetActivePopUp = null, resetPreviousMistakes = false, lastPassedWord = null }: resetWordsProps = {}) {
 		setWordsCount(resetWordsCount);
-		setActiveOptions({
-			...resetOptions,
-			wordsCountKey:
-				resetWordsCount == fullWordlistLength ? 'full'
-					: ([25, 50, 100].includes(resetWordsCount) ? resetWordsCount.toString()
-						: 'custom')
-		})
 		setWordlistKeys(resetWordlistKeys);
 		const { wordlist: newWordlist, initLength: newInitLength } = getRandomPairs(resetWordsCount, resetWordlistKeys, resetOptions.noRepeat);
 		setFullWordlistLength(newInitLength);
+		setActiveOptions({
+			...resetOptions,
+			wordsCountKey:
+				resetWordsCount == newInitLength ? 'full'
+					: ([25, 50, 100].includes(resetWordsCount) ? resetWordsCount.toString()
+						: 'custom')
+		})
 		setWordlist(newWordlist);
 
 		if (resetPreviousMistakes) {
@@ -197,6 +198,15 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 						}]);
 					} else {
 						setPreviousMistakes(currentMistakes);
+						if (!currentMistakes && activeOptions.wordsCountKey == 'full') {
+							const completedWordlists = progress.completedWordlists ? progress.completedWordlists : wordlistKeys;
+							if (progress.completedWordlists) {
+								wordlistKeys.forEach((key) => completedWordlists.add(key));
+							}
+
+							const maxCompletedWordlistsAtOnce = progress.maxCompletedWordlistsAtOnce < wordlistKeys.size ? wordlistKeys.size : progress.maxCompletedWordlistsAtOnce;
+							setProgress({correctWordsCount: progress.correctWordsCount + 1, maxCompletedWordlistsAtOnce: maxCompletedWordlistsAtOnce, completedWordlists: completedWordlists});
+						}
 					}
 				}
 			} else {
@@ -227,7 +237,6 @@ function WordsContextProvider({ children }: { children: ReactNode }) {
 				activeScreenEffect, setActiveScreenEffect,
 				activeOptions, setActiveOptions,
 				progress, setProgress,
-				cookies, setCookies,
 				registerWordsInputRef, focusWordsInput,
 				checkWord, resetWords
 			}}>

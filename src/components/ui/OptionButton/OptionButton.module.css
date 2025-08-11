@@ -12,7 +12,7 @@
 	text-align: center;
 	width: clamp(52.8px, 6.6vw, 66px);
 	height: clamp(28.6px, 4.4vw, 30.8px);
-	font-size: clamp(19px, 2.3vw, 23.1px);
+	font-size: clamp(19px, 2.7vw, 23.1px);
 	font-weight: bold;
 
 	border-style: solid;
@@ -31,6 +31,20 @@
 
 .button:hover {
 	background-color: var(--softerDarkAccent);
+}
+
+.highlighted {
+	background-color: #0a4f4f;
+}
+
+.highlighted:hover {
+	background-color: #147373;
+}
+
+.highlighted.active {
+	border-color: #00ffff;
+	color: #fff;
+	background-color: #199a9a;
 }
 
 .borderRight {
@@ -58,7 +72,7 @@
 }
 
 .small {
-	font-size: clamp(16.5px, 2.2vw, 19.8px);
+	font-size: clamp(16.5px, 2.2vw, 22px);
 }
 
 .smaller {

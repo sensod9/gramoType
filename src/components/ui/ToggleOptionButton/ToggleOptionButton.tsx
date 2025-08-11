@@ -9,14 +9,15 @@ interface Props
 	fontSize?: string;
 	width?: string;
 	borderDirection?: string;
+	isHighlighted?: boolean;
 	children: ReactNode;
 };
 
-function ToggleOptionButton({ isActive, setIsActive, fontSize = 'smaller', width = 'small', borderDirection = 'right', children }: Props) {
+function ToggleOptionButton({ isActive, setIsActive, fontSize = 'smaller', width = 'small', borderDirection = 'right', isHighlighted = false, children }: Props) {
 	return (
 		<OptionButton isActive={isActive} fontSize={fontSize} onClick={() => {
 			setIsActive(!isActive);
-		}} borderDirection={borderDirection} width={width}>
+		}} borderDirection={borderDirection} width={width} isHighlighted={isHighlighted}>
 			{children}
 		</OptionButton>
 	);

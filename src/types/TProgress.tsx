@@ -1,4 +1,5 @@
 export type TProgress = {
 	correctWordsCount: number;
-	completedWordlists: null | string[];
+	maxCompletedWordlistsAtOnce: number;
+	completedWordlists: null | Set<string>;
 }

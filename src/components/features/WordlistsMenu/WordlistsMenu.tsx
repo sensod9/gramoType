@@ -8,16 +8,16 @@ import formatTitle from "../../../modules/formatTitle";
 function WordlistsMenu() {
 	const context = useWordsContext();
 	const { wordlistKeys, resetWords, focusWordsInput } = context;
-	const assocWordlistKeys: string[] = wordlistKeys.map((key) =>
+	const assocWordlistKeys: string[] = [...wordlistKeys].map((key) =>
 		wordlistsAssoc[key as keyof typeof wordlistsAssoc]
 	);
 
-	const [newWordlistKeys, setNewWordlistKeys] = useState<string[]|null>(wordlistKeys); 
+	const [newWordlistKeys, setNewWordlistKeys] = useState<Set<string> | null>(wordlistKeys); 
 	const [isActive, setIsActive] = useState(false);
 
 	function toggleIsActive() {
 		if (isActive) {
-			if (newWordlistKeys && JSON.stringify(newWordlistKeys) != JSON.stringify(wordlistKeys)) {
+			if (newWordlistKeys && JSON.stringify([...newWordlistKeys]) != JSON.stringify([...wordlistKeys])) {
 				resetWords({ resetWordlistKeys: newWordlistKeys });
 			} else {
 				setNewWordlistKeys(wordlistKeys);

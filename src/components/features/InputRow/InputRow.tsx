@@ -4,6 +4,7 @@ import CurrentWordsCounter from "../CurrentWordsCounter/CurrentWordsCounter";
 import MainMistakesList from "../MainMistakesList/MainMistakesList";
 import PreviousEndScreenButton from "../PreviousEndScreenButton/PreviousEndScreenButton";
 import SecondarySlider from "../SecondarySlider/SecondarySlider";
+import TrophyBar from "../TrophyBar/TrophyBar";
 import WordInput from "../WordInput/WordInput";
 import styles from "./InputRow.module.css";
 
@@ -21,7 +22,7 @@ function InputRowWrapper() {
 			</div>
 			<div className="d-flex flex-column">
 				<WordInput />
-				<span style={{userSelect: 'none'}}>&nbsp;</span>
+				<span style={{pointerEvents: 'none'}}>&nbsp;</span>
 				<div className='d-flex flex-row mt-2' style={{transform: 'translateX(50%)'}}>
 					<div className='d-flex flex-column w-100' style={{transform: 'translateX(-50%)'}}>
 						<CurrentWordsCounter />
@@ -29,9 +30,12 @@ function InputRowWrapper() {
 							<PreviousEndScreenButton />
 						</div>
 						{activeOptions.hardMode && <HardModeIndicator /> }
-						<div className='narrow mt-2'>
+						<div className='narrow mt-1'>
 							<MainMistakesList side='center' height='small' />
 						</div>
+					</div>
+					<div className='narrow mt-2 position-absolute' style={{marginLeft: 'clamp(143px, 19vw, 190px)'}}>
+						<TrophyBar orientation="vertical" />
 					</div>
 					<div className='medium mt-2 position-absolute' style={{marginLeft: 'clamp(143px, 19vw, 190px)'}}>
 						<MainMistakesList side='center' height='medium' width='adaptive' />

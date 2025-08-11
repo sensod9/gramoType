@@ -1,0 +1,27 @@
+.star {
+	font-size: clamp(40px, 5vw, 65px);
+}
+
+.phaseZero {
+	color: var(--softGrayFg);
+}
+
+.phaseOne {
+	color: #3b5f7c;	
+}
+
+.phaseTwo {
+	color: #9e654f;	
+}
+
+.phaseThree {
+	color: #30bd79;	
+}
+
+.phaseFour {
+	color: #fcd913;	
+}
+
+.phaseFive {
+	color: #fc1313;	
+}

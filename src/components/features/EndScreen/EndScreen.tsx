@@ -8,7 +8,7 @@ import MainMistakesList from "../MainMistakesList/MainMistakesList";
 function EndScreen() {
 	const context = useWordsContext();
 	const { activePopUp, setActivePopUp, previousWordlistKeys, focusWordsInput } = context;
-	const assocWordlistKeys: string[] = previousWordlistKeys ? previousWordlistKeys.map((key) =>
+	const assocWordlistKeys: string[] = previousWordlistKeys ? [...previousWordlistKeys].map((key) =>
 		wordlistsAssoc[key as keyof typeof wordlistsAssoc]
 	) : [''];
 	

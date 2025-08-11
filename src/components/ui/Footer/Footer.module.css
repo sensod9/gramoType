@@ -1,24 +1,27 @@
-.footer {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-
+.bottomPos {
 	position: fixed;
 	left: 0%;
 	bottom: 0%;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box; 
-  line-height: clamp(20px, 2.1vw, 25px);
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+  line-height: clamp(17px, 2.1vw, 23px);
   overflow-wrap: break-word;
 
   padding-top: 4px;
 
   text-align: center;
-	padding-bottom: 0;
+	padding-bottom: 3px;
 
-	font-size: clamp(20px, 2.1vw, 25px);
+	font-size: clamp(16px, 2vw, 22px);
 
 	background-color: var(--darkBgColor);
 }

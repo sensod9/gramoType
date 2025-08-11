@@ -3,9 +3,9 @@ import type { TGetPairsResult } from "../types/TGetPairResult";
 import type { TPair } from "../types/TPair";
 import type { TWordlist } from "../types/TWordlist";
 
-function getRandomPairs(count: number, wordlistKeys: string[], noRepeat = true): TGetPairsResult {
+function getRandomPairs(count: number, wordlistKeys: Set<string>, noRepeat = true): TGetPairsResult {
 	let wordlist: TWordlist = [];
-	wordlistKeys.forEach((key) =>
+	[...wordlistKeys].forEach((key) =>
 		wordlist = wordlist.concat(wordlists[key].map(
 		(pair) => [pair[0].replaceAll(' ', ' '), pair[1]] as TPair
 	)));

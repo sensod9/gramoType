@@ -6,8 +6,8 @@ import WordlistDropdownButton from "../WordlistDropdownButton/WordlistDropdownBu
 interface Props
 {
 	toggleIsActive: () => void;
-	newWordlistKeys: string[] | null;
-	setNewWordlistKeys: (value: string[] | null) => void;
+	newWordlistKeys: Set<string> | null;
+	setNewWordlistKeys: (value: Set<string> | null) => void;
 };
 
 function WordlistsDropdownContent({toggleIsActive, newWordlistKeys, setNewWordlistKeys}: Props) {

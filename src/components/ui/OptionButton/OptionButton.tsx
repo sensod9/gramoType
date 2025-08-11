@@ -9,11 +9,12 @@ interface Props
 	width?: string;
 	height?: string;
 	borderDirection?: string;
+	isHighlighted?: boolean;
 	style?: React.CSSProperties;
 	children: ReactNode;
 };
 
-function OptionButton({ isActive, onClick, fontSize = 'normal', width = 'small', height = 'normal', borderDirection = 'right', style = {}, children }: Props) {
+function OptionButton({ isActive, onClick, fontSize = 'normal', width = 'small', height = 'normal', borderDirection = 'right', isHighlighted = false, style = {}, children }: Props) {
     return (
         <button 
             className={`${styles.button} 
@@ -25,7 +26,8 @@ function OptionButton({ isActive, onClick, fontSize = 'normal', width = 'small',
 												 borderDirection === 'circle' ? styles.borderCircle : styles.borderSquare}
                        ${fontSize === 'smaller' ? styles.smaller : fontSize === 'small' ? styles.small : ''}
                        ${width === 'full' ? styles.fullWidth : ''}
-											 ${height === 'double' ? styles.doubleHeight : ''}`} 
+											 ${height === 'double' ? styles.doubleHeight : ''}
+											 ${isHighlighted ? styles.highlighted : ''}`} 
             onClick={onClick} style={style}>
             {children}
         </button>

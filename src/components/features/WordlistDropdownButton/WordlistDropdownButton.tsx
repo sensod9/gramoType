@@ -1,34 +1,34 @@
 import DropdownButton from "../../ui/DropdownButton/DropdownButton";
 import { wordlistsAssoc } from "../../../data/wordlists";
-import { useState } from "react";
+import { useWordsContext } from "../../../contexts/WordsContext";
 
 interface Props
 {
 	assocTitle: string;
-	newWordlistKeys: string[] | null;
-	setNewWordlistKeys: (value: string[]|null) => void;
+	newWordlistKeys: Set<string> | null;
+	setNewWordlistKeys: (value: Set<string> | null) => void;
 };
 
 function WordlistDropdownButton({ assocTitle, newWordlistKeys, setNewWordlistKeys }: Props) {
-	const [isActive, setIsActive] = useState(newWordlistKeys ? newWordlistKeys.includes(assocTitle) : false);
+	const context = useWordsContext();
+	const { progress } = context;
+
+	const isActive = newWordlistKeys ? newWordlistKeys.has(assocTitle) : false;
+	const isHighlighted = progress.completedWordlists ? progress.completedWordlists.has(assocTitle) : false; 
 	
 	function toggleIsActive() {
-		console.log(isActive, assocTitle);
-		console.log(newWordlistKeys);
+		const newSet = new Set(newWordlistKeys || []);
 		if (isActive) {
-			if (newWordlistKeys && newWordlistKeys.length == 1) {
-				setNewWordlistKeys(null);
-			} else if (newWordlistKeys) {
-				setNewWordlistKeys(newWordlistKeys.filter(key => key != assocTitle)); {/* урок №1: не используй splice, если не умеешь читать */}
-			}
+			newSet.delete(assocTitle);
+			setNewWordlistKeys(newSet.size > 0 ? newSet : null);
 		} else {
-			setNewWordlistKeys(newWordlistKeys ? [...newWordlistKeys, assocTitle] : [assocTitle]);
+			newSet.add(assocTitle);
+			setNewWordlistKeys(newSet);
 		}
-		setIsActive(!isActive);
 	}
 
 	return (
-		<DropdownButton isActive={isActive} toggleIsActive={toggleIsActive}>
+		<DropdownButton isActive={isActive} toggleIsActive={toggleIsActive} isHighlighted={isHighlighted}>
 			{wordlistsAssoc[assocTitle as keyof typeof wordlistsAssoc]}
 		</DropdownButton>
 	);

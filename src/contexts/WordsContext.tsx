@@ -3,12 +3,11 @@ import type { TWordlist } from "../types/TWordlist";
 import type { TMistakes } from "../types/TMistakes";
 import type { TPassedWords } from "../types/TPassedWords";
 import type { TActiveOptions } from "../types/TActiveOptions";
-import type { TCookies } from "../types/TCookies";
 import type { TProgress } from "../types/TProgress";
 
 type TWordsContext = {
-	wordlistKeys: string[];
-	setWordlistKeys: (value: string[]) => void;
+	wordlistKeys: Set<string>;
+	setWordlistKeys: (value: Set<string>) => void;
 	wordlist: TWordlist;
 	setWordlist: (value: TWordlist) => void;
 	fullWordlistLength: number;
@@ -23,8 +22,8 @@ type TWordsContext = {
 	currentMistakes: TMistakes | null;
 	setCurrentMistakes: (value: TMistakes | null) => void;
 	addCurrentMistake: (value: string) => void;
-	previousWordlistKeys: null | string[];
-	setPreviousWordlistKeys: (value: string[]) => void;
+	previousWordlistKeys: null | Set<string>;
+	setPreviousWordlistKeys: (value: Set<string>) => void;
 	previousWordsCount: null | number;
 	setPreviousWordsCount: (value: number) => void;
 	previousMistakes: TMistakes | null;
@@ -40,8 +39,6 @@ type TWordsContext = {
 	setActiveOptions: (value: TActiveOptions) => void;
 	progress: TProgress;
 	setProgress: (value: TProgress) => void;
-	cookies: TCookies;
-	setCookies: (value: TCookies) => void;
 	registerWordsInputRef: (value: HTMLInputElement | null) => void;
 	focusWordsInput: () => void;
 	checkWord: (value: string) => boolean;
@@ -52,7 +49,7 @@ export interface resetWordsProps
 {
 	resetWordsCount?: number;
 	resetOptions?: TActiveOptions;
-	resetWordlistKeys?: string[];
+	resetWordlistKeys?: Set<string>;
 	resetActivePopUp?: null | string;
 	resetPreviousMistakes?: boolean;
 	lastPassedWord?: null | string;
