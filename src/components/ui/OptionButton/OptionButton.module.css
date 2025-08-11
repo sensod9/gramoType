@@ -71,6 +71,10 @@
 	border-radius: 0 0 0 0;
 }
 
+.medium {
+	font-size: clamp(13.6px, 1.85vw, 21px);
+}
+
 .small {
 	font-size: clamp(16.5px, 2.2vw, 22px);
 }

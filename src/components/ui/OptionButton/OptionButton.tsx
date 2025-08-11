@@ -24,7 +24,7 @@ function OptionButton({ isActive, onClick, fontSize = 'normal', width = 'small',
 												 borderDirection === 'down' ? styles.borderDown :
 												 borderDirection === 'up' ? styles.borderUp :
 												 borderDirection === 'circle' ? styles.borderCircle : styles.borderSquare}
-                       ${fontSize === 'smaller' ? styles.smaller : fontSize === 'small' ? styles.small : ''}
+                       ${fontSize == 'smaller' ? styles.smaller : fontSize == 'small' ? styles.small : fontSize == 'medium' ? styles.medium : ''}
                        ${width === 'full' ? styles.fullWidth : ''}
 											 ${height === 'double' ? styles.doubleHeight : ''}
 											 ${isHighlighted ? styles.highlighted : ''}`} 
