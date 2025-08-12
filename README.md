@@ -7,7 +7,7 @@
 https://github.com/user-attachments/assets/141a7185-16a9-40f7-b373-2a229f8f25f7
 > [!IMPORTANT]
 > ## https://sensod9.github.io/gramoType/
-### [Видео-обзор проекта на ютубе (без технической части)](https://youtu.be/elVjChoORQ0)
+### [Видео-обзор проекта на ютубе (без технической части)](https://youtu.be/jei-WFenD2E)
 
 ***
 
